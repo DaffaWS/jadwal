@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catatan & Jadwal Sekolah</title>
+
+  <!-- CSS background gambar langsung di HTML -->
+  <style>
+    body {
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+  </style>
+
+  <!-- Link ke file CSS utama -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="container">
+  <!-- Login / Register -->
+  <div id="login-section">
+    <h1>Login / Registrasi</h1>
+    <input type="text" id="username" placeholder="Masukkan username" />
+    <button id="btn-login">Login / Register</button>
+    <p id="login-msg" style="color:#ffb3b3;"></p>
+  </div>
+
+  <!-- Isi Jadwal Minggu A dan B -->
+  <div id="setup-jadwal-section" class="hidden">
+    <h2>Isi Jadwal Minggu A dan Minggu B</h2>
+    <p>Masukkan jadwal pelajaran untuk setiap hari (Senin - Jumat) dan minggu A serta minggu B.<br/>
+    Tulis satu mata pelajaran per baris.</p>
+    <form id="jadwal-form">
+      <table>
+        <thead>
+          <tr>
+            <th>Hari</th>
+            <th>Minggu A</th>
+            <th>Minggu B</th>
+          </tr>
+        </thead>
+        <tbody id="jadwal-table-body"></tbody>
+      </table>
+      <button type="submit">Simpan Jadwal</button>
+    </form>
+  </div>
+
+  <!-- Halaman Utama: Lihat Jadwal dan Catat PR -->
+  <div id="main-section" class="hidden">
+    <h2>Halo, <span id="user-display"></span>!</h2>
+    <button id="btn-logout" class="logout-btn">Logout</button>
+    <button id="btn-edit-jadwal" class="btn-secondary">Edit Jadwal</button>
+    <button id="btn-reset-akun" class="btn-secondary" style="background-color:#e74c3c; margin-top:10px;">Reset Akun</button>
+
+    <div class="week-toggle">
+      <button id="btn-minggu-a" class="active">Minggu A</button>
+      <button id="btn-minggu-b">Minggu B</button>
+    </div>
+
+    <h3>Jadwal Sekolah</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Hari</th>
+          <th>Mata Pelajaran & PR / Tugas</th>
+        </tr>
+      </thead>
+      <tbody id="jadwal-display-body"></tbody>
+    </table>
+
+    <h3>Tambah PR / Tugas</h3>
+    <form id="pr-form">
+      <label for="pr-mata-pelajaran">Mata Pelajaran:</label>
+      <select id="pr-mata-pelajaran" required>
+        <option value="">-- Pilih Mata Pelajaran --</option>
+      </select>
+
+      <label for="pr-nama">Nama PR / Tugas:</label>
+      <input type="text" id="pr-nama" placeholder="Contoh: PR IPA Bab 3" required />
+
+      <label for="pr-tanggal">Tanggal Pengingat (opsional):</label>
+      <input type="date" id="pr-tanggal" />
+
+      <button type="submit">Tambah PR</button>
+    </form>
+
+    <h3>Daftar PR / Tugas</h3>
+    <div id="pr-list"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
